@@ -114,6 +114,11 @@ const AddSection = ({ onAddSection }) => {
             {image && (
               <div className="image-preview">
                 <img src={image} alt="Preview" width="100" />
+                <label>Description:</label>
+                <textarea
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
               </div>
             )}
           </div>

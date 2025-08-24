@@ -1,15 +1,8 @@
 import { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { useSpring, animated } from 'react-spring';
 
 const DraggableSection = ({ id, index, moveSection, children }) => {
   const ref = useRef(null);
-  const AnimatedDiv = animated.div;
-
-  const style = useSpring({
-    opacity: isDragging ? 0.5 : 1,
-    transform: isDragging ? 'scale(1.05)' : 'scale(1)',
-  });
 
   const [{ isDragging }, drag] = useDrag({
     type: 'SECTION',
@@ -44,13 +37,17 @@ const DraggableSection = ({ id, index, moveSection, children }) => {
   drag(drop(ref));
 
   return (
-    <AnimatedDiv 
-    ref={ref}
-    style={style}
-    className={`draggable-section ${isDragging ? 'dragging' : ''}`}
-  >
-    {children}
-  </AnimatedDiv>
+    <div
+      ref={ref}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+        transform: isDragging ? 'scale(1.05)' : 'scale(1)',
+        transition: 'all 0.2s ease' // Added smooth transition
+      }}
+      className={`draggable-section ${isDragging ? 'dragging' : ''}`}
+    >
+      {children}
+    </div>
   );
 };
 

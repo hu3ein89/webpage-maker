@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../css/Login.css'; // 👈 Make sure to import the CSS file
+import './Login.css'; // Make sure to import the CSS file
 
 const Login = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({
@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     if (
       credentials.username === 'admin' &&
-      credentials.password === 'admin123'
+      credentials.password === 'admin'
     ) {
       localStorage.setItem('authToken', 'fake-token');
       onLogin();
@@ -21,7 +21,6 @@ const Login = ({ onLogin }) => {
       setFailedAttempts(prev => prev + 1);
     }
   };
-
 
   return (
     <div className='loginForm-container'>
@@ -33,6 +32,7 @@ const Login = ({ onLogin }) => {
             <input
               type="text"
               value={credentials.username}
+              placeholder='admin'
               onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
               required
             />
@@ -42,6 +42,7 @@ const Login = ({ onLogin }) => {
             <input
               type="password"
               value={credentials.password}
+              placeholder='admin'
               onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               required
             />
@@ -54,7 +55,6 @@ const Login = ({ onLogin }) => {
           )}
         </form>
       </div>
-
     </div>
   );
 };

@@ -554,3 +554,16 @@ button:hover {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+
+.export-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background: #45a049;
+}
