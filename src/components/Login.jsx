@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Login.css'; // Make sure to import the CSS file
+import '../css/Login.css'; 
 
 const Login = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({
@@ -27,6 +27,8 @@ const Login = ({ onLogin }) => {
       <div className="login-wrapper">
         <form className="login-form" onSubmit={handleSubmit}>
           <h2>Admin Login</h2>
+          <p>username:admin</p>
+          <p>password:admin</p>
           <div className="input-group">
             <label>Username</label>
             <input
